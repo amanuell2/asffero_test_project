@@ -15,7 +15,7 @@
         "tsConfig": "apps/asffero/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": ["apps/asffero/src/favicon.ico", "apps/asffero/src/assets"],
-        "styles": ["apps/asffero/src/styles.scss"],
+        "styles": ["apps/asffero/src/styles.scss","node_modules/ng-zorro-antd/src/ng-zorro-antd.min.css"],
         "scripts": []
       },
       "configurations": {

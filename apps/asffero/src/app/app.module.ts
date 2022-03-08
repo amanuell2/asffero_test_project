@@ -1,22 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { NxWelcomeComponent } from './nx-welcome.component';
 import { HttpClientModule } from '@angular/common/http';
-import { UserComponent } from './Modules/User/user.component';
-
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { UserModule } from './Modules/User/user.module';
 @NgModule({
-  declarations: [AppComponent, NxWelcomeComponent],
+  declarations: [AppComponent ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot([
-      {
-        path: '',
-        component: UserComponent,
-      },
-    ]),
+    UserModule,
     HttpClientModule,
+    NzButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
