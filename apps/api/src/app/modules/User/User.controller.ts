@@ -37,8 +37,12 @@ export class UserController {
   }
 
   @Get()
-  getUsers(@Query('page') page: number, @Query('limit') limit: number) {
-    return this.userService.getUsers(page, limit);
+  getUsers(
+    @Query('page') page: number,
+    @Query('limit') limit: number,
+    @Query('search') search: string
+  ) {
+    return this.userService.getUsers(page, limit, search);
   }
 
   @Get(':id')

@@ -21,9 +21,9 @@ export class UserComponent implements OnInit {
   emitEventToEditUser(user: User) {
     this.EditEventsSubject.next(user);
   }
-  fetchAllUsers() {
+  fetchAllUsers(search = '') {
     this.userService
-      .getUsers({ page: this.page, limit: this.limit })
+      .getUsers({ page: this.page, limit: this.limit, search: search })
       .subscribe((data) => {
         this.userList = data?.items;
         this.totalUsers = data?.total;
@@ -32,6 +32,10 @@ export class UserComponent implements OnInit {
   onPageIndexChange(pageIndex: number) {
     this.page = pageIndex;
     this.fetchAllUsers();
+  }
+  searchUser(searchValue: string) {
+    console.log(searchValue);
+    this.fetchAllUsers(searchValue);
   }
   fetchUser(id: number) {
     this.userService.getUser(id);

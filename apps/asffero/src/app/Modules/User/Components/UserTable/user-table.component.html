@@ -10,7 +10,16 @@
   >
     <thead>
       <tr>
-        <th>Name</th>
+        <th nzCustomFilter>
+          Name
+          <nz-filter-trigger
+            [(nzVisible)]="visible"
+            [nzActive]="searchValue.length > 0"
+            [nzDropdownMenu]="menu"
+          >
+            <i nz-icon nzType="search"></i>
+          </nz-filter-trigger>
+        </th>
         <th>Surname</th>
         <th>Date of Birth</th>
         <th>Phone</th>
@@ -46,4 +55,17 @@
   <ng-template #totalTemplate let-range="range">
     {{ totalUsers }} records , {{ 2 }} / {{ totalUsers }} pages
   </ng-template>
+  <nz-dropdown-menu #menu="nzDropdownMenu">
+    <div class="ant-table-filter-dropdown">
+      <div class="search-box">
+        <input
+          type="text"
+          nz-input
+          #input
+          placeholder="Search name"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        />
+      </div>
+    </div>
+  </nz-dropdown-menu>
 </div>

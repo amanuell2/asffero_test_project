@@ -8,6 +8,7 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { RouterModule } from '@angular/router';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserTableComponent } from './Components/UserTable/user-table.component';
 import { UserFormComponent } from './Components/UserForm/user-form.component';
@@ -22,6 +23,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
     NzIconModule,
     NzButtonModule,
     NzFormModule,
+    NzDropDownModule,
     NzDatePickerModule,
     FormsModule,
     ReactiveFormsModule,

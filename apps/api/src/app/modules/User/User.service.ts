@@ -19,9 +19,12 @@ export class UserService {
     return newUser;
   }
 
-  getUsers(page, limit) {
+  getUsers(page, limit, search) {
     const items = [
       ...this.users
+        .filter((user) =>
+          user.name.toUpperCase().includes(search.toUpperCase())
+        )
         .sort((a, b) => (a.name.toUpperCase() < b.name.toUpperCase() ? -1 : 1))
         .slice((page - 1) * limit, page * limit),
     ];
