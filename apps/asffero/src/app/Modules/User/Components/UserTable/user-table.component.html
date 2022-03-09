@@ -1,0 +1,29 @@
+ <div class="w-full h-full">
+        <nz-table #basicTable [nzData]="dataSet">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Date of Birth</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Time stamp</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of basicTable.data">
+                <td>{{data.name}}</td>
+                <td>{{data.surname}}</td>
+                <td>{{data.dateOfBirth}}</td>
+                <td>{{data.phone}}</td>
+                <td>{{data.email}}</td>
+                <td>{{data.timeStamp}}</td>
+                <td>
+                 <i nz-icon nzType="edit" nzTheme="outline" class="mx-1"></i>
+                <i nz-icon nzType="close" nzTheme="outline" class="mx-1"></i>   
+                </td>
+              </tr>
+            </tbody>
+          </nz-table>
+    </div>

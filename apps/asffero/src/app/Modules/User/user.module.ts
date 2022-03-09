@@ -6,14 +6,26 @@ import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { RouterModule } from '@angular/router';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import {NzDatePickerModule} from "ng-zorro-antd/date-picker";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UserTableComponent } from './Components/UserTable/user-table.component';
+import { UserFormComponent } from './Components/UserForm/user-form.component';
+import { NzButtonModule } from 'ng-zorro-antd/button';
 @NgModule({
-  declarations: [UserComponent ],
+  declarations: [UserComponent,UserTableComponent,UserFormComponent ],
   imports: [
     BrowserModule,
     HttpClientModule,
     NzTableModule,
     NzDividerModule,
     NzIconModule,
+    NzButtonModule,
+    NzFormModule,
+    
+    NzDatePickerModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
         { path: 'user', component: UserComponent },
     ]),

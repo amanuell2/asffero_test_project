@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { UserModule } from './Modules/User/user.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [AppComponent ],
   imports: [
@@ -11,6 +12,7 @@ import { UserModule } from './Modules/User/user.module';
     UserModule,
     HttpClientModule,
     NzButtonModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
