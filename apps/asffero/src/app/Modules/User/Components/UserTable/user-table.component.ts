@@ -8,8 +8,12 @@ import { User } from '../../Modles/User.model';
 export class UserTableComponent {
   @Input() users: User[] = [];
   @Output() deleteUserEvent = new EventEmitter<string>();
+  @Output() editUserEvent = new EventEmitter<User>();
   constructor() {}
 
+  editUser(user: User) {
+    this.editUserEvent.emit(user);
+  }
   deleteUser(id: string) {
     this.deleteUserEvent.emit(id);
   }

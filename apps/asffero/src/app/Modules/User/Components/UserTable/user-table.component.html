@@ -20,8 +20,15 @@
         <td>{{ data.email }}</td>
         <td>{{ data.timeStamp | date: 'dd, MM, yyyy hh:mm' }}</td>
         <td>
-          <i nz-icon nzType="edit" nzTheme="outline" class="mx-1"></i>
-          <button nz-button nzType="primary" (click)="deleteUser(data.id)">
+          <button nz-button nzType="primary" (click)="editUser(data)">
+            <i nz-icon nzType="edit" nzTheme="outline" class="mx-1"></i>
+          </button>
+          <button
+            class="mx-1"
+            nz-button
+            nzType="primary"
+            (click)="deleteUser(data.id)"
+          >
             <i nz-icon nzType="close" nzTheme="outline" class="mx-1"></i>
           </button>
         </td>

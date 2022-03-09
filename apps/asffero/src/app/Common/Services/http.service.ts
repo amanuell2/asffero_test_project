@@ -14,8 +14,8 @@ export class HttpService {
     return this.httpClient.post(`${environment.apiUrl}${url}`, data);
   }
 
-  put(url: string, data: any) {
-    return this.httpClient.put(`${environment.apiUrl}${url}`, data);
+  put(url: string, data: any): any {
+    return this.httpClient.patch(`${environment.apiUrl}${url}`, data);
   }
 
   delete(url: string): any {

@@ -16,13 +16,11 @@ export class ServiceService {
   }
 
   createUser(user: any): Observable<User> {
-    return this.httpService.post('/api/user', user);
+    return this.httpService.post('/api/user/', user);
   }
 
-  updateUser(user: any) {
-    this.httpService.put('/api/user' + user.id, user).subscribe((data) => {
-      console.log(data);
-    });
+  updateUser(user: any): Observable<User> {
+    return this.httpService.put('/api/user/' + user.id, user);
   }
 
   deleteUser(id: string): Observable<any> {
