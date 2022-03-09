@@ -1,4 +1,9 @@
 <div class="h-screen w-full px-32 flex flex-col justify-between divide-y-8">
-  <angular-tailwind-nx-user-form-selector></angular-tailwind-nx-user-form-selector>
-  <angular-tailwind-nx-user-table-selector></angular-tailwind-nx-user-table-selector>
+  <angular-tailwind-nx-user-form-selector
+    (newUserAddEvent)="addUser($event)"
+  ></angular-tailwind-nx-user-form-selector>
+  <angular-tailwind-nx-user-table-selector
+    (deleteUserEvent)="deleteUser($event)"
+    [users]="userList"
+  ></angular-tailwind-nx-user-table-selector>
 </div>

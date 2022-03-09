@@ -19,12 +19,12 @@
           <input
             nz-input
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            formControlName="userName"
+            formControlName="name"
             placeholder="Please enter your name"
           />
           <ng-template #userErrorTpl let-control>
             <ng-container *ngIf="control.hasError('required')"
-              >Please input your username!</ng-container
+              >Please input your name!</ng-container
             >
           </ng-template>
         </nz-form-control>
@@ -47,8 +47,8 @@
           <input
             nz-input
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            formControlName="surName"
-            placeholder="Please enter your surName"
+            formControlName="surname"
+            placeholder="Please enter your surname"
           />
         </nz-form-control>
       </nz-form-item>

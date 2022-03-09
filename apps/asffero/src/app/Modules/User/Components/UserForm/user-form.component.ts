@@ -1,10 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { en_US, NzI18nService } from 'ng-zorro-antd/i18n';
+import { User } from '../../Modles/User.model';
 @Component({
   selector: 'angular-tailwind-nx-user-form-selector',
   templateUrl: 'user-form.component.html',
@@ -12,26 +9,30 @@ import { en_US, NzI18nService } from 'ng-zorro-antd/i18n';
 })
 export class UserFormComponent implements OnInit {
   validateForm: FormGroup;
-
+  @Output() newUserAddEvent = new EventEmitter<User>();
   constructor(private fb: FormBuilder, private i18n: NzI18nService) {
     this.validateForm = this.fb.group({
-      userName: [
+      name: ['', [Validators.required, Validators.maxLength(60)]],
+      email: ['', [Validators.email, Validators.required]],
+      surname: ['', [Validators.required, Validators.maxLength(60)]],
+      dateOfBirth: ['', [Validators.required]],
+      phone: [
         '',
         [
           Validators.required,
-          Validators.maxLength(60),
+          Validators.minLength(10),
+          Validators.pattern('^[0-9]*$'),
         ],
       ],
-      email: ['', [Validators.email, Validators.required]],
-      surName: ['', [Validators.required, Validators.maxLength(60)]],
-      dateOfBirth: ['', [Validators.required]],
-      phone: ['', [Validators.required, Validators.minLength(10),Validators.pattern('^[0-9]*$')]],
     });
     this.i18n.setLocale(en_US);
   }
 
   submitForm(): void {
-    console.log('submit', this.validateForm.value);
+    if (this.validateForm.valid) {
+      this.newUserAddEvent.emit(this.validateForm.value);
+      this.validateForm.reset();
+    }
   }
 
   resetForm(e: MouseEvent): void {
@@ -44,8 +45,6 @@ export class UserFormComponent implements OnInit {
       }
     }
   }
-
-
 
   ngOnInit() {}
 }
