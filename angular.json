@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "projects": {
+    "api": "apps/api",
+    "api-interfaces": "libs/api-interfaces",
+    "asffero": "apps/asffero",
+    "asffero-e2e": "apps/asffero-e2e"
+  }
+}

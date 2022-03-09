@@ -1,0 +1,94 @@
+{
+  "projectType": "application",
+  "root": "apps/asffero",
+  "sourceRoot": "apps/asffero/src",
+  "prefix": "angular-tailwind-nx",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/asffero",
+        "index": "apps/asffero/src/index.html",
+        "main": "apps/asffero/src/main.ts",
+        "polyfills": "apps/asffero/src/polyfills.ts",
+        "tsConfig": "apps/asffero/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["apps/asffero/src/favicon.ico", "apps/asffero/src/assets"],
+        "styles": ["apps/asffero/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/asffero/src/environments/environment.ts",
+              "with": "apps/asffero/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "asffero:build:production"
+        },
+        "development": {
+          "browserTarget": "asffero:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "proxyConfig": "apps/asffero/proxy.conf.json"
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "asffero:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/asffero/src/**/*.ts",
+          "apps/asffero/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/asffero"],
+      "options": {
+        "jestConfig": "apps/asffero/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

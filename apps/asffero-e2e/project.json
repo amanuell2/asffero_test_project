@@ -1,0 +1,28 @@
+{
+  "root": "apps/asffero-e2e",
+  "sourceRoot": "apps/asffero-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/asffero-e2e/cypress.json",
+        "devServerTarget": "asffero:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "asffero:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/asffero-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["asffero"]
+}
