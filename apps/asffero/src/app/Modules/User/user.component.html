@@ -8,5 +8,7 @@
     (deleteUserEvent)="deleteUser($event)"
     (editUserEvent)="emitEventToEditUser($event)"
     [users]="userList"
+    [totalUsers]="totalUsers"
+    (pageIndexChangeEvent)="onPageIndexChange($event)"
   ></angular-tailwind-nx-user-table-selector>
 </div>

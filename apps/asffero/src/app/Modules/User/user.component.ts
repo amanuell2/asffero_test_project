@@ -9,10 +9,10 @@ import { ServiceService } from './services/user.service';
 export class UserComponent implements OnInit {
   EditEventsSubject: Subject<User> = new Subject<User>();
   userList: User[] = [];
-
-  constructor(private userService: ServiceService) {
-    console.log('am instantiated');
-  }
+  totalUsers = 0;
+  page = 1;
+  limit = 10;
+  constructor(private userService: ServiceService) {}
 
   ngOnInit() {
     this.fetchAllUsers();
@@ -22,9 +22,16 @@ export class UserComponent implements OnInit {
     this.EditEventsSubject.next(user);
   }
   fetchAllUsers() {
-    this.userService.getUsers().subscribe((data) => {
-      this.userList = data;
-    });
+    this.userService
+      .getUsers({ page: this.page, limit: this.limit })
+      .subscribe((data) => {
+        this.userList = data?.items;
+        this.totalUsers = data?.total;
+      });
+  }
+  onPageIndexChange(pageIndex: number) {
+    this.page = pageIndex;
+    this.fetchAllUsers();
   }
   fetchUser(id: number) {
     this.userService.getUser(id);

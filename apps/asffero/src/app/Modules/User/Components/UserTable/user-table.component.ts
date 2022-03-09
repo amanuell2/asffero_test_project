@@ -7,8 +7,10 @@ import { User } from '../../Modles/User.model';
 })
 export class UserTableComponent {
   @Input() users: User[] = [];
+  @Input() totalUsers = 0;
   @Output() deleteUserEvent = new EventEmitter<string>();
   @Output() editUserEvent = new EventEmitter<User>();
+  @Output() pageIndexChangeEvent = new EventEmitter<number>();
   constructor() {}
 
   editUser(user: User) {
@@ -16,5 +18,13 @@ export class UserTableComponent {
   }
   deleteUser(id: string) {
     this.deleteUserEvent.emit(id);
+  }
+
+  onPageIndexChange(pageIndex: number) {
+    this.pageIndexChangeEvent.emit(pageIndex);
+  }
+
+  onPageSizeChange(pageSize: number) {
+    console.log(pageSize);
   }
 }

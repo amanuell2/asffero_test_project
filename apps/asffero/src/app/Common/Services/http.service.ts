@@ -6,8 +6,8 @@ import { environment } from 'apps/asffero/src/environments/environment';
 export class HttpService {
   constructor(private httpClient: HttpClient) {}
 
-  get(url: string): any {
-    return this.httpClient.get(`${environment.apiUrl}${url}`);
+  get(url: string, data: any): any {
+    return this.httpClient.get(`${environment.apiUrl}${url}`, { params: data });
   }
 
   post(url: string, data: any): any {

@@ -1,5 +1,13 @@
 <div class="w-full h-full">
-  <nz-table #basicTable [nzData]="users">
+  <nz-table
+    #basicTable
+    [nzData]="users"
+    [nzFrontPagination]="false"
+    [nzTotal]="totalUsers"
+    [nzPageSize]="10"
+    (nzPageIndexChange)="onPageIndexChange($event)"
+    (nzPageSizeChange)="onPageSizeChange($event)"
+  >
     <thead>
       <tr>
         <th>Name</th>
@@ -35,4 +43,7 @@
       </tr>
     </tbody>
   </nz-table>
+  <ng-template #totalTemplate let-range="range">
+    {{ totalUsers }} records , {{ 2 }} / {{ totalUsers }} pages
+  </ng-template>
 </div>

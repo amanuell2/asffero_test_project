@@ -19,8 +19,13 @@ export class UserService {
     return newUser;
   }
 
-  getUsers() {
-    return [...this.users];
+  getUsers(page, limit) {
+    const items = [
+      ...this.users
+        .sort((a, b) => (a.name.toUpperCase() < b.name.toUpperCase() ? -1 : 1))
+        .slice((page - 1) * limit, page * limit),
+    ];
+    return { items, total: this.users.length };
   }
 
   getUser(userId: string) {

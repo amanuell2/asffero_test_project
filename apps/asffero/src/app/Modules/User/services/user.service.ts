@@ -7,12 +7,12 @@ import { User } from '../Modles/User.model';
 export class ServiceService {
   constructor(private httpService: HttpService) {}
 
-  getUsers(): Observable<User[]> {
-    return this.httpService.get(`/api/user`);
+  getUsers(data: any): Observable<any> {
+    return this.httpService.get(`/api/user`, data);
   }
 
   getUser(id: number) {
-    this.httpService.get('/api/user' + id);
+    this.httpService.get('/api/user' + id, null);
   }
 
   createUser(user: any): Observable<User> {
