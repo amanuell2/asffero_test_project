@@ -37,7 +37,7 @@ npm install
 RUN 'npx nx run asffero:serve'
 
 #run the api
-RUN 'npx nx run asffero:api'
+RUN 'npx nx run api:serve'
 
 ## ☁ Notice
 
