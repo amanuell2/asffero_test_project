@@ -2,6 +2,33 @@
 
 #i used NX workspace which helps to scale app as it grows
 
+# feature implememnted
+
+*add user
+*edit user
+*delete user
+*search user
+\*paginate user list
+
+#Technology
+\*frontend built with angualr
+i used angular
+-route
+-event
+-service
+-test
+-formvaildation
+-http client
+and more
+
+- backend NestJs
+  i used nestjs
+  -RESTfull
+  -Query
+  -service
+  -controller
+  -model
+
 #install
 npm install
 
