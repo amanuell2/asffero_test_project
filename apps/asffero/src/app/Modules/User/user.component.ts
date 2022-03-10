@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs/internal/Subject';
 import { User } from './Modles/User.model';
-import { ServiceService } from './services/user.service';
+import { UserService } from './services/user.service';
 @Component({
   selector: 'angular-tailwind-nx-user-selector',
   templateUrl: 'user.component.html',
@@ -12,7 +12,7 @@ export class UserComponent implements OnInit {
   totalUsers = 0;
   page = 1;
   limit = 10;
-  constructor(private userService: ServiceService) {}
+  constructor(private userService: UserService) {}
 
   ngOnInit() {
     this.fetchAllUsers();

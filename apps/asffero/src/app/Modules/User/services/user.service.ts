@@ -4,15 +4,15 @@ import { HttpService } from '../../../Common/Services/http.service';
 import { User } from '../Modles/User.model';
 
 @Injectable({ providedIn: 'root' })
-export class ServiceService {
+export class UserService {
   constructor(private httpService: HttpService) {}
 
   getUsers(data: any): Observable<any> {
     return this.httpService.get(`/api/user`, data);
   }
 
-  getUser(id: number) {
-    this.httpService.get('/api/user' + id, null);
+  getUser(id: number): Observable<User> {
+    return this.httpService.get('/api/user' + id, null);
   }
 
   createUser(user: any): Observable<User> {
