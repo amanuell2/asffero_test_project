@@ -11,15 +11,16 @@
 \*paginate user list
 
 #Technology
-\*frontend built with angualr
-i used angular
--route
--event
--service
--test
--formvaildation
--http client
-and more
+
+- frontend built with angualr
+  i used angular
+  -route
+  -event
+  -service
+  -test
+  -formvaildation
+  -http client
+  and more
 
 - backend NestJs
   i used nestjs
